@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Motos — Vipers Motors</title>
+    <meta name="description" content="Explorá el stock disponible de motos usadas en Vipers Motors. Filtros por marca, año, cilindrada y precio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                VIPERS <span>MOTORS</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html" class="active">Motos</a>
+                <a href="#vende-seccion">Vendé tu moto</a>
+            </nav>
+            <a href="https://wa.me/5491112345678?text=Hola%20Vipers%20Motors,%20estoy%20interesado%20en%20consultar%20sobre%20el%20stock." target="_blank" class="btn-whatsapp-nav">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Main Catalog Container -->
+    <section style="padding-top: 3rem;">
+        <div class="section-header">
+            <div class="section-title">
+                <h2>Catálogo de Motos</h2>
+                <p>Unidades seleccionadas y verificadas en Zona Oeste</p>
+            </div>
+        </div>
+
+        <div class="catalog-layout">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-filter" style="color: var(--accent-red); font-size: 1rem;"></i> Filtrar Stock
+                </h3>
+
+                <div class="filter-group">
+                    <label>Buscar por marca o modelo</label>
+                    <input type="text" id="filter-search" placeholder="Ej. Suzuki, FZ...">
+                </div>
+
+                <div class="filter-group">
+                    <label>Marca</label>
+                    <select id="filter-marca">
+                        <option value="">Todas las marcas</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Yamaha">Yamaha</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Bajaj">Bajaj</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Categoría / Tipo</label>
+                    <select id="filter-categoria">
+                        <option value="">Todos los tipos</option>
+                        <option value="street">Street / Naked</option>
+                        <option value="sport">Sport</option>
+                        <option value="enduro">Enduro / Trail</option>
+                        <option value="scooter">Scooter</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Estado</label>
+                    <select id="filter-estado">
+                        <option value="">Disponibles y Vendidas</option>
+                        <option value="DISPONIBLE" selected>Solo Disponibles</option>
+                        <option value="VENDIDA">Vendidas (Historial)</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" id="btn-reset-filters" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem; padding: 0.5rem;">
+                    Limpiar Filtros
+                </button>
+            </aside>
+
+            <!-- Catalog Results -->
+            <main>
+                <div class="catalog-header-bar">
+                    <span id="results-count" style="color: var(--text-muted); font-size: 0.9rem;">Cargando motos...</span>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label style="font-size: 0.85rem; color: var(--text-muted);">Ordenar:</label>
+                        <select id="sort-by" style="background: var(--bg-secondary); border: 1px solid var(--border-color); color: white; padding: 0.4rem; border-radius: 4px; font-size: 0.85rem;">
+                            <option value="recientes">Más recientes</option>
+                            <option value="precio-menor">Precio menor</option>
+                            <option value="precio-mayor">Precio mayor</option>
+                            <option value="km">Menor kilometraje</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="motos-grid" id="catalog-grid">
+                    <!-- Cards injected via JS -->
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Sell Section inside catalog page -->
+    <section id="vende-seccion" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); margin-top: 4rem;">
+        <div class="section-header" style="text-align: center; display: block;">
+            <h2>Vendé tu moto con Vipers</h2>
+            <p>Completá el formulario y nos comunicamos por WhatsApp en menos de 24 horas.</p>
+        </div>
+        
+        <div style="max-width: 700px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 6px;">
+            <form id="vende-form" onsubmit="handleFormSubmit(event)">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Tu Nombre *</label>
+                        <input type="text" required placeholder="Ej. Juan Pérez" style="width:1px; width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">WhatsApp *</label>
+                        <input type="text" required placeholder="Ej. 11 1234-5678" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Marca *</label>
+                        <input type="text" required placeholder="Ej. Yamaha" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Modelo *</label>
+                        <input type="text" required placeholder="Ej. FZ 150" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Año *</label>
+                        <input type="number" required placeholder="2023" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Kilómetros *</label>
+                        <input type="number" required placeholder="Ej. 15000" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Precio Pretendido (ARS) *</label>
+                        <input type="number" required placeholder="Ej. 4500000" style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); color:white; padding:0.6rem; border-radius:4px;">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">
+                    Enviar Solicitud a Vipers Motors <i class="fab fa-whatsapp"></i>
+                </button>
+            </form>
+            <div id="form-success" style="display:none; text-align:center; padding: 2rem;">
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: #25D366; margin-bottom: 1rem;"></i>
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">¡Solicitud enviada con éxito!</h3>
+                <p style="color: var(--text-muted);">Te contactaremos por WhatsApp en breve para coordinar la evaluación de tu moto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                    VIPERS <span>MOTORS</span>
+                </a>
+                <p>Catálogo digital oficial y agenciamiento de motos en Zona Oeste, Buenos Aires.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Motos</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="https://wa.me/5491112345678" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a></li>
+                    <li><a href="#">Morón, Buenos Aires</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vipers Motors. Todos los derechos reservados.</p>
+            <p>Motorsport + Precision + Transparency</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5491112345678?text=Hola%20Vipers%20Motors,%20estoy%20en%20el%20catálogo%20y%20quiero%20consultar..." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vipers Motors — Tu próxima moto está acá</title>
+    <meta name="description" content="Catálogo oficial de Vipers Motors. Compra y venta de motos usadas seleccionadas con Vipers Check en Zona Oeste.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                VIPERS <span>MOTORS</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="catalogo.html">Motos</a>
+                <a href="catalogo.html">Vendé tu moto</a>
+                <a href="catalogo.html">Nosotros</a>
+            </nav>
+            <a href="https://wa.me/5491112345678?text=Hola%20Vipers%20Motors,%20estoy%20interesado%20en%20consultar%20sobre%20el%20stock." target="_blank" class="btn-whatsapp-nav">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Tu próxima moto <span>está acá</span></h1>
+                <p>Motos seleccionadas, revisadas con Vipers Check y listas para transferir en Zona Oeste.</p>
+                <div class="hero-buttons">
+                    <a href="catalogo.html" class="btn-primary">
+                        Ver Motos <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="catalogo.html" class="btn-outline">
+                        Vendé tu Moto
+                    </a>
+                </div>
+                <div class="hero-badge-container">
+                    <div class="hero-stat">
+                        <span class="num">+30</span>
+                        <span class="label">Motos Vendidas</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">100%</span>
+                        <span class="label">Verificadas</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">Zona Oeste</span>
+                        <span class="label">Buenos Aires</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-placeholder">
+                    <i class="fas fa-motorcycle"></i>
+                    <p>VIPERS MOTORS STOCK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories / Style -->
+    <section>
+        <div class="section-header">
+            <div class="section-title">
+                <h2>Encontrá tu estilo</h2>
+                <p>Filtrá el catálogo según lo que buscás</p>
+            </div>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="window.location.href='catalogo.html?cat=street'">
+                <i class="fas fa-road"></i>
+                <h3>Street / Naked</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='catalogo.html?cat=sport'">
+                <i class="fas fa-flag-checkered"></i>
+                <h3>Sport</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='catalogo.html?cat=enduro'">
+                <i class="fas fa-mountain"></i>
+                <h3>Enduro / Trail</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='catalogo.html?cat=scooter'">
+                <i class="fas fa-bolt"></i>
+                <h3>Scooter / Alta</h3>
+            </div>
+        </div>
+
+        <!-- Featured Motos -->
+        <div class="section-header">
+            <div class="section-title">
+                <h2>🔥 Motos Destacadas</h2>
+                <p>Últimos ingresos listos para entrega inmediata</p>
+            </div>
+            <a href="catalogo.html" class="btn-outline" style="font-size:0.9rem; padding:0.5rem 1rem;">Ver todo el stock →</a>
+        </div>
+
+        <div class="motos-grid" id="destacadas-grid">
+            <!-- Rendered dynamically by app.js -->
+        </div>
+    </section>
+
+    <!-- Why Vipers -->
+    <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="section-header" style="text-align: center; display: block;">
+            <h2>¿Por qué elegir Vipers?</h2>
+            <p>La web debe vender confianza antes que vender motos.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Selección rigurosa</h3>
+                <p>Buscamos y analizamos oportunidades reales en el mercado con excelente relación precio/estado.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-check-circle"></i>
+                <h3>Vipers Check</h3>
+                <p>Revisión técnica exhaustiva de motor, frenos, transmisión y estética antes de cada publicación.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-file-contract"></i>
+                <h3>Transparencia total</h3>
+                <p>Información clara, kilometraje real, titularidad verificada y gestión completa de transferencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sell Moto Banner -->
+    <section>
+        <div class="sell-banner">
+            <div class="sell-banner-text">
+                <h2>¿Querés vender tu moto?</h2>
+                <p>Publicala con Vipers Motors y llegá directamente a compradores calificados que buscan una unidad como la tuya.</p>
+            </div>
+            <a href="catalogo.html" class="btn-primary">Quiero vender mi moto →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                    VIPERS <span>MOTORS</span>
+                </a>
+                <p>Catálogo digital oficial y agenciamiento de motos en Zona Oeste, Buenos Aires.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Motos</a></li>
+                    <li><a href="catalogo.html">Vendé tu moto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="https://wa.me/5491112345678" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram @vipersmotors</a></li>
+                    <li><a href="#">Morón, Buenos Aires</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vipers Motors. Todos los derechos reservados.</p>
+            <p>Motorsport + Precision + Transparency</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5491112345678?text=Hola%20Vipers%20Motors,%20estoy%20en%20la%20web%20y%20quiero%20consultar..." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
